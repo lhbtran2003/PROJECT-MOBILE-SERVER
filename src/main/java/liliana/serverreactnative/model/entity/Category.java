@@ -27,11 +27,11 @@ class Category {
     private String imageUrl;
 
 
-    @Column(nullable = false, insertable = false, updatable = false)
+    @Column(nullable = false)
     private LocalDateTime createdAt;
 
 
-    @Column(nullable = false, insertable = false, updatable = false)
+    @Column(nullable = false)
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "category")

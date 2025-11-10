@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-class Product {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productId;
@@ -42,10 +42,10 @@ class Product {
     private String imageUrl;
 
 
-    @Column(nullable = false, insertable = false, updatable = false)
+    @Column(nullable = false)
     private LocalDateTime createdAt;
 
 
-    @Column(nullable = false, insertable = false, updatable = false)
+    @Column(nullable = false)
     private LocalDateTime updatedAt;
 }

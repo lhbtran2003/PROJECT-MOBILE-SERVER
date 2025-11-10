@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-class User {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
@@ -27,10 +27,6 @@ class User {
     private String passwordHash;
 
 
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
-
-
     @Column(unique = true, nullable = false)
     private String email;
 
@@ -38,15 +34,14 @@ class User {
     private String firstName;
     private String lastName;
     private String phoneNumber;
-    private String address;
     private String avatarUrl;
 
 
-    @Column(nullable = false, insertable = false, updatable = false)
+    @Column(nullable = false)
     private LocalDateTime createdAt;
 
 
-    @Column(nullable = false, insertable = false, updatable = false)
+    @Column(nullable = false)
     private LocalDateTime updatedAt;
 
 
