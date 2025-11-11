@@ -20,7 +20,7 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    private ProductResponse mapProductToResponse(Product product) {
+    public ProductResponse mapProductToResponse(Product product) {
         return ProductResponse.builder()
                 .productId(product.getProductId())
                 .productName(product.getProductName())

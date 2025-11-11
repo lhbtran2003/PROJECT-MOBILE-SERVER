@@ -32,7 +32,6 @@ public class WishList {
     private Product product;
 
 
-    @Column(name = "added_at", insertable = false, updatable = false,
-            columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "added_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime addedAt;
 }

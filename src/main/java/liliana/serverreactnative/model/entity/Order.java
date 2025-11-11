@@ -7,13 +7,14 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
 @Getter
 @Setter
 @NoArgsConstructor
-class Order {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer orderId;
@@ -31,14 +32,18 @@ class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus = OrderStatus.PENDING;
 
-
+    private String receiverName;
+    private String receiverPhone;
     private String shippingAddress;
 
 
-    @Column(nullable = false, insertable = false, updatable = false)
+    @Column(nullable = false)
     private LocalDateTime createdAt;
 
 
-    @Column(nullable = false, insertable = false, updatable = false)
+    @Column(nullable = false)
     private LocalDateTime updatedAt;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderItem> orderItems;
 }
